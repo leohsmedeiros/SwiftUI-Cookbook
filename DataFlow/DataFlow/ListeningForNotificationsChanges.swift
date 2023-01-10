@@ -20,7 +20,7 @@ struct ListeningForNotificationsChanges: View {
                 NotificationCenter.default.post(name: Notification.Name.taskAddedNotification, object: "Wash the car")
             }
             
-            Text(newTask ?? "") 
+            Text(newTask ?? "")
                 .onReceive(NotificationCenter.default.publisher(for: Notification.Name.taskAddedNotification)) { output in
                     newTask = output.object as? String
                 }
